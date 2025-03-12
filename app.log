@@ -1,0 +1,4 @@
+2025-03-12 15:41:14,503 - INFO - Shortened URL: https://github.com/microsoft/pyright/blob/main/docs/configuration.md#reportMissingImports -> zx8EyY
+2025-03-12 15:41:14,508 - INFO - 127.0.0.1 - POST /shorten Status: 200 - Time: 0.0555s
+2025-03-12 15:41:15,416 - INFO - Shortened URL: https://github.com/microsoft/pyright/blob/main/docs/configuration.md#reportMissingImports -> OOpUeC
+2025-03-12 15:41:15,418 - INFO - 127.0.0.1 - POST /shorten Status: 200 - Time: 0.0374s

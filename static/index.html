@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Shortener</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin: 50px; }
+        input, button { padding: 10px; margin: 5px; }
+        a { display: block; margin-top: 10px; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h2>URL Shortener</h2>
+    <input type="text" id="url" placeholder="Enter URL here..." size="40">
+    <button onclick="shortenURL()">Shorten</button>
+    <p id="shortened-url"></p>
+
+    <script>
+        async function shortenURL() {
+            const urlInput = document.getElementById("url").value;
+            if (!urlInput) {
+                alert("Please enter a valid URL!");
+                return;
+            }
+    
+            const response = await fetch("/shorten", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ url: urlInput })
+            });
+    
+            const result = await response.json();
+            if (response.ok) {
+                document.getElementById("shortened-url").innerHTML = 
+                    `<a href="${result.short_url}" target="_blank">${result.short_url}</a>`;
+            } else {
+                document.getElementById("shortened-url").innerText = "Error shortening URL.";
+                console.error("API Error:", result);
+            }
+        }
+    </script>
+    
+</body>
+</html>
